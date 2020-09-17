@@ -1,0 +1,67 @@
+﻿<script type="text/javascript">
+
+    const postOptions = (body) => {
+        return {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+            },
+            body: body
+        }
+    }
+
+    const jsonDataType = (response) => {
+        return response.json()
+    }
+
+    const handleError = (response) => {
+
+        if (!response.ok) {
+            return response.text().
+                then((error) => {
+                    throw Error(error)
+                })
+        }
+        return response
+    }
+
+    const formatNumber = (number) => {
+        return isNaN(number) ? "" : number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '$&,')
+    }
+
+    const calculate = () => {
+
+        fetch("/Home/Add", postOptions(`numbers=${document.querySelector("#number").value}`)).
+            then(handleError).
+            then(jsonDataType).
+            then((data) => {
+                document.querySelector("#answer").textContent = formatNumber(data)
+                document.querySelector(".error-div").innerHTML = ""
+            }).
+            catch((error) => {
+                document.querySelector(".error-div").innerHTML = error
+            })
+    }
+
+    const clearAll = () => {
+
+        document.querySelector(".answer").textContent = ""
+        document.querySelector(".number").value = ""
+        document.querySelector(".error-div").innerHTML = ""
+    }
+
+</script>
+
+<div class="container">
+    <div class="answer-div">
+        <label id="answer" class="answer"></label>
+    </div>
+    <div class="input-div">
+        <input id="number" class="number" type="text" placeholder="Enter Here..." />
+    </div>
+    <div class="button-div">
+        <input id="btnCalculate" class="button" type="button" value="Calculate" onclick="calculate()" />
+        <input id="btnClear" class="button" type="button" value="Clear" onclick="clearAll()" />
+    </div>
+    <div class="error-div"></div>
+</div>

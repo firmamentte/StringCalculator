@@ -1,0 +1,101 @@
+﻿html, body {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--primary-font-family);
+}
+
+:root {
+    --primary-font-family: Verdana;
+    --primary-red-color: #9E0000;
+}
+
+.button {
+    width: 100%;
+    color: #FFFFFF;
+    background-color: #000000;
+    font-family: var(--primary-font-family);
+    border-radius: 6px;
+    border: 0px;
+    font-size: 0.85em;
+    padding: 8px 14px 8px 14px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: normal;
+    white-space: normal;
+    outline: none;
+    cursor: pointer;
+}
+
+.error-div {
+    width: 100%;
+    font-family: var(--primary-font-family);
+    font-size: 0.8em;
+    font-weight: normal;
+    color: var(--primary-red-color);
+}
+
+.container {
+    width: 25%;
+    min-width: 260px;
+    margin: auto;
+    padding: 0px 10px 10px 10px;
+    box-sizing: border-box;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 0 4px 4px rgba(45, 45, 45, 0.6);
+}
+
+    .container .answer-div {
+        text-align: right;
+        padding: 20px 0px 20px 0px;
+    }
+
+        .container .answer-div label {
+            width: 100%;
+            font-family: var(--primary-font-family);
+            font-size: 1.5em;
+            font-weight: bold;
+            border: 0px;
+            outline: none;
+        }
+
+    .container .input-div .number {
+        height: 35px;
+        width: 100%;
+        color: #454545;
+        padding: 0px 10px 0px 10px;
+        font-weight: normal;
+        font-size: 0.75em;
+        font-family: var(--primary-font-family);
+        border: 1px solid #C0C0C0;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    .container .button-div {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+        .container .button-div #btnClear {
+            margin-left: 6px;
+        }
+
+    .container .error-div, .button-div {
+        margin-top: 8px;
+    }
+
+/* Styles for footer controls
+-----------------------------------------------------------*/
+footer .footer-container {
+    width: 90%;
+    margin: 30px auto;
+    text-align: center;
+    font-family: var(--primary-font-family);
+    font-size: 0.75em;
+    font-weight: normal;
+}
